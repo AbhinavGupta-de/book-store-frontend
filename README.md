@@ -34,5 +34,5 @@ What I have in my mind is that they can also use this site to store their readin
 
 ## Links
 
-- [Live Site](https://books-store.netlify.app/)
+- [Live Site](https://books-store-abhi.netlify.app/)
 - [Github Repo](https://github.com/AbhinavGupta-de/book-store-frontend)
