@@ -32,6 +32,10 @@ What I have in my mind is that they can also use this site to store their readin
 - Express
 - MongoDB
 
+## Some Challenges I faced and learnings from this project
+
+- One of the learnings was that as I have deployed my backend on Railway.app so while making the post request I have to use https in the url otherwise the request won't work as railway just doesn't allow any other request.
+
 ## Links
 
 - [Live Site](https://books-store-abhi.netlify.app/)
