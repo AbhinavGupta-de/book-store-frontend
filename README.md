@@ -36,6 +36,8 @@ What I have in my mind is that they can also use this site to store their readin
 
 - One of the learnings was that as I have deployed my backend on Railway.app so while making the post request I have to use https in the url otherwise the request won't work as railway just doesn't allow any other request.
 
+- To add amazing alert notifications we used a library called notistack. It was very easy to use and it was very easy to customize it as well.
+
 ## Links
 
 - [Live Site](https://books-store-abhi.netlify.app/)

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
+import { useSnackbar } from 'notistack';
 
 const EditBooks = () => {
 	const [title, setTitle] = useState('');
@@ -12,6 +13,7 @@ const EditBooks = () => {
 	const [loading, setLoading] = useState(false);
 	const id = useParams().id;
 	const navigate = useNavigate();
+	const { enqueueSnackbar } = useSnackbar();
 	// console.log(id);
 
 	useEffect(() => {
@@ -27,7 +29,10 @@ const EditBooks = () => {
 				setLoading(false);
 			})
 			.catch((err) => {
-				alert('Error occured please check console...');
+				enqueueSnackbar('Error occured please check console...', {
+					variant: 'error',
+				});
+				// alert('Error occured please check console...');
 				console.log(err);
 				setLoading(false);
 			});
@@ -42,9 +47,13 @@ const EditBooks = () => {
 			.put(`${url}/${id}`, book)
 			.then(() => {
 				setLoading(false);
+				enqueueSnackbar('Book updated successfully', { variant: 'info' });
 				navigate('/');
 			})
 			.catch((err) => {
+				enqueueSnackbar('Error occured please check console...', {
+					variant: 'error',
+				});
 				console.log(err);
 				setLoading(false);
 			});

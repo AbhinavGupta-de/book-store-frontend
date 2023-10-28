@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
+import { useSnackbar } from 'notistack';
 
 const CreateBooks = () => {
 	const [title, setTitle] = useState('');
@@ -11,6 +12,7 @@ const CreateBooks = () => {
 	const [publishedYear, setPublishedYear] = useState('');
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
+	const { enqueueSnackbar } = useSnackbar();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -21,9 +23,13 @@ const CreateBooks = () => {
 			.post(`${url}`, book)
 			.then(() => {
 				setLoading(false);
+				enqueueSnackbar('Book created successfully', { variant: 'success' });
 				navigate('/');
 			})
 			.catch((err) => {
+				enqueueSnackbar('Error occured please check console...', {
+					variant: 'error',
+				});
 				console.log(err);
 				setLoading(false);
 			});
