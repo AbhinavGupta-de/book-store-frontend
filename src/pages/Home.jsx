@@ -12,8 +12,9 @@ const Home = () => {
 
 	useEffect(() => {
 		setLoading(true);
+		const url = import.meta.env.VITE_URL;
 		axios
-			.get('https://books-store.up.railway.app/books')
+			.get(`${url}`)
 			.then((res) => {
 				setBooks(res.data);
 				setLoading(false);

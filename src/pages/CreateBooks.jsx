@@ -16,8 +16,9 @@ const CreateBooks = () => {
 		e.preventDefault();
 		setLoading(true);
 		const book = { title, author, description, publishedYear };
+		const url = import.meta.env.VITE_URL;
 		axios
-			.post('https://books-store.up.railway.app/books', book)
+			.post(`${url}`, book)
 			.then(() => {
 				setLoading(false);
 				navigate('/');
