@@ -12,7 +12,7 @@ const EditBooks = () => {
 	const [loading, setLoading] = useState(false);
 	const id = useParams().id;
 	const navigate = useNavigate();
-	console.log(id);
+	// console.log(id);
 
 	useEffect(() => {
 		setLoading(true);
